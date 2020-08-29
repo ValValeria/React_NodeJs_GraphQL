@@ -1,4 +1,7 @@
 import {render} from 'react-dom'
 import React from 'react'
+import App from './app'
+import 'bootstrap/dist/css/bootstrap.css'
+import '../scss/style.scss'
 
-render(<div>Hello</div>,document.querySelector('#app'))
+render(<App/>,document.querySelector('#app'))

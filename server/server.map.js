@@ -11,10 +11,10 @@ app.use('/graphql',graphqlHTTP({
 }))
 
 
-app.get("/build/static/:folder/:filename",(req,resp)=>{
-       const filePath = path.join(path.dirname(__dirname),req.path)
+app.get("/:folder/:filename",(req,resp)=>{
+       const filePath = path.resolve("build",req.path.slice(1))
 
-       if (fs.existsSync(filePath)){
+       if (fs.existsSync(filePath) && req.params.folder!=="server"){
            resp.sendFile(filePath)
        } else {
            resp.sendStatus(403)
@@ -22,7 +22,7 @@ app.get("/build/static/:folder/:filename",(req,resp)=>{
 })
 
 app.get("*",(req,resp)=>{
-       const filePath = path.join(path.dirname(__dirname),'client','html','index.html')
+       const filePath = path.resolve('build','index.html')
        resp.sendFile(filePath)
 })
 
