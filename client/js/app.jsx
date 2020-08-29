@@ -1,10 +1,15 @@
 import React from 'react';
-import {Alert} from 'react-bootstrap'
+import {Switch,Route} from 'react-router-dom'
+import Main from './Pages/Main'
+import Header from './Components/Header'
 
 export default function App(){
      return (
-         <Alert variant ="primary">
-             Helloj
-         </Alert>
+         <>
+         <Header/>
+         <Switch>
+            <Route path="/" exact={true} component={Main}/>
+         </Switch>
+         </>
      )
 }
