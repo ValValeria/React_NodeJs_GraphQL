@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const mypath = require("path");
+const SourceMapDevToolPlugin = require('webpack').SourceMapDevToolPlugin;
 
 module.exports = {
         mode:"development",
@@ -27,12 +28,16 @@ module.exports = {
             },
             {
                 test:/\.jsx$/,
-                use:{
-                loader:"babel-loader",    
-                options: {
-                    "presets": ["@babel/preset-env","@babel/preset-react"],
-                }}
+                enforce: 'pre',
+                use:[
+                  {loader:"babel-loader",    
+                  options: {
+                      "presets": ["@babel/preset-env","@babel/preset-react"],
+                  }},
+                  {loader:"source-map-loader"}
+                ],
             },
+
             {
                 test:/\.scss/,
                 use:['style-loader',"css-loader","sass-loader"]
@@ -44,7 +49,10 @@ module.exports = {
             ],
         },
         plugins:[
-            new HtmlWebpackPlugin({template:"./client/html/index.html"})
+            new HtmlWebpackPlugin({template:"./client/html/index.html"}),
+            new SourceMapDevToolPlugin({
+                filename: "[file].map"
+              }),
         ],
         resolve: {
             extensions: ['.js', '.json','.jsx','.scss']

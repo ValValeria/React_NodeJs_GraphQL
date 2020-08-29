@@ -36,7 +36,7 @@ export default function Main(){
                              [data.map((el,index)=>{
                                 return (
                                 <div className="text-white" key={index}>
-                                     <div className="img"><img src={el.img} alt="" srcset=""/></div>
+                                     <div className="img"><img src={el.img} alt="..." /></div>
                                      <h2>{Object.keys(el)[0]}</h2>
                                      <p>{Object.values(el)[0]}</p>
                                  </div>);
