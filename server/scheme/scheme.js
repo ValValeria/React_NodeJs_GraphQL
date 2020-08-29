@@ -1,10 +1,10 @@
+import {Letter} from '../mongoose/mongoose'
+import {user} from '../user.data'
+
+
 const graphql = require('graphql');
 
 const {GraphQLObjectType,GraphQLString,GraphQLList} = graphql;
-
-const letters = [
-    {id:"1",message:"2lsl",email:""}
-]
 
 const LetterType = new GraphQLObjectType({
     name:"Letter",
@@ -18,18 +18,12 @@ const LetterType = new GraphQLObjectType({
 const RootType = new GraphQLObjectType({
     name:"RootType",
     fields:{
-        letter:{
-            type:LetterType,
-            args:{id:{type:GraphQLString}},
-            resolve(parent,args){
-                const id = args.id
-                return letters.find(el=>el.id==id) 
-            }
-        },
         letters:{
             type:new GraphQLList(LetterType),
-            resolve(parent,args){
-                return letters;
+            async resolve(parent,args){
+                if(user.isAdmin){
+                    return await Letter.find().exec();
+                }
             }
         }
     }
@@ -44,16 +38,16 @@ const Mutation = new GraphQLObjectType({
                 email:{type:GraphQLString},
                 message:{type:GraphQLString}
             },
-            resolve(parent,args){///create a letter
+            async resolve(parent,args){///create a letter
                 const obj = {email:args.email,message:args.message};
-                letters.push(obj)
+                await Letter.create(obj)
                 return obj
             }
         }
     }
 })
 
-module.exports = new graphql.GraphQLSchema({
+module.exports.root = new graphql.GraphQLSchema({
     query:RootType,
     mutation:Mutation
 })
