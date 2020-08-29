@@ -1,0 +1,35 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "node":"node build\\server\\server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "express": "^4.17.1",
+    "graphpack": "^1.0.9",
+    "gulp-concat": "^2.6.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^10.0.0",
+    "express-graphql": "^0.11.0",
+    "graphql": "15.3.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
