@@ -53,7 +53,15 @@ section{
 }
 
 .shadow{
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.messages{
+    background-color: rgba(44, 62, 80,0.4);
+    padding: 20px;
+    min-height: 350px;
+    width: 90%;
+    max-width: 700px;
 }
 
 header{
@@ -144,6 +152,22 @@ header{
     font-weight: 900;
     font-size: 24px;
     margin-right: 25px;
+}
+
+.p-20{
+    padding:20px;
+}
+
+.h__100{
+  min-height:100vh;
+}
+
+
+.img_my{
+    background-image: url(https://images.unsplash.com/photo-1598674931646-412655aa28d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .why_me-main h6{
