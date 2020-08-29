@@ -7,6 +7,20 @@
     box-sizing: border-box;
 }
 
+@mixin center(){
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap{
+    width:90%;
+    max-width:1000px;
+    margin:0 auto;
+    padding:40px;
+}
+
 body{
     overflow-x:hidden;
     font-family: 'Montserrat', sans-serif;
@@ -35,12 +49,17 @@ section{
     text-align: left;
     min-height:40px;
     width:100vw;
+    padding: 1.875rem;
+}
+
+.shadow{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 header{
     height: 80px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
@@ -63,15 +82,109 @@ header{
     min-height: 100%;
     text-align: left;
     background-color: #fff;
-    border-radius: 10px;
     padding: 20px;
     max-width: 500px;
+}
+
+.form__section{
+    min-height: 50vh;
+    background-image: url(https://demos.creative-tim.com/material-kit-react/static/media/sign.cf8b686b.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center bottom;
+}
+
+.why_me{
+    position: relative;  
+}
+
+.why_me-decsr{
+    padding-left: 46%;
+    text-align: center;
+
+    .img{
+        max-width: 100%;
+    }
+
+    .img img{
+        object-fit: cover;
+        width: 100%;
+    }
+
+    p{
+    font-size: 14px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    }
+
+    >div{
+        padding-bottom:4rem;
+    }
+}
+
+.why_me-main{
+    position: sticky;
+    top:100px;
+    width: 43%;
+    float:left;
+    min-width:340px;
+}
+
+.num-item{
+    margin: 10px 0;
+}
+.why_me-main-num{
+    padding-top:20px;
+}
+
+.num-item span{
+    display: inline-block;
+    color: #fff;
+    font-weight: 900;
+    font-size: 24px;
+    margin-right: 25px;
+}
+
+.why_me-main h6{
+    font-size: 46px;
+    font-weight: 400;
+    /* line-height: 40px; */
+    margin-bottom: 20px;
 }
 
 .light{
     background-color: #f4f6f8;
 }
 
+.banner__content{
+    padding-top: 2rem;
+    max-width: 800px;
+    width: 90%;
+    height: calc( 100vh - 200px);
+    margin:0 auto;
+    @include center();    
+
+    button{
+        margin:5px;
+        width: 200px;
+        height: 40px;
+    }
+    
+    p{
+        margin:16px;
+    }
+
+    .banner__buttons{
+        @include center();
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
+.banner__content h3{
+    font-size: 5rem;
+}
 .header__content{
     max-width: 800px;
     width: 100%;
@@ -80,4 +193,14 @@ header{
     display: flex;
     justify-content: space-between;
     align-content: center;
+}
+
+.headline{
+    line-height: 38px;
+    margin-bottom: 1em;
+    font-weight: 600;
+    color: #2f353f;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
 }
