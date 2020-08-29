@@ -2,16 +2,19 @@ import path from 'path'
 import fs from 'fs'
 import {user} from './user.data'
 import schema from './scheme/scheme'
+import bodyparser from 'body-parser'
 
 const express = require('express')
 const graphqlHTTP = require('express-graphql').graphqlHTTP
 const app = express()
 
+app.use(bodyparser.json())
+
 app.use('/',(req,resp,next)=>{
 
     try {
         const json = JSON.parse(req.cookies.auth)
-        user.isAdmin(json)
+        user.isUserAdmin(json)
     } catch (error) {
 
     } finally {
@@ -25,10 +28,11 @@ app.use('/graphql',graphqlHTTP({
 }))
 
 app.post('/login',(req,resp)=>{
-    if("email" in req.body && "password" in req.body){
+
+    if(typeof req.body == 'object' && req.body!==null){
         const obj = {email:req.body.email,password:req.body.password};
 
-        const isUser = user.isAdmin({email:req.body.email,password:req.body.password})
+        const isUser = user.isUserAdmin({email:req.body.email,password:req.body.password})
 
         if(isUser){
            resp.cookie('auth',JSON.stringify(obj))
@@ -38,7 +42,7 @@ app.post('/login',(req,resp)=>{
         }
 
     } else {
-        return resp.status(403)
+        return resp.send("Not allowed")
     }
 })
 

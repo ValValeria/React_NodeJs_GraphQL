@@ -2,17 +2,17 @@ import React from 'react'
 import {Form,Button} from 'react-bootstrap'
 import Card from '@material-ui/core/Card'
 import validator from 'validator'
-import {context } from '../Context/data'
+import {BehaviorSubject} from 'rxjs'
 
+export const user = new BehaviorSubject ();
 
 export default function Admin(){
 
     const [state,updateState] = React.useState([]);
-
+    
     const classes = React.useCallback(()=>{
         return 'd-flex align-items-center flex-columns justify-content-center flex-columns '
     })
-
 
     const submit = async (e)=>{
         e.preventDefault();
@@ -22,7 +22,10 @@ export default function Admin(){
 
         const response = await fetch('/login',{
             method:'POST',
-            body:JSON.stringify({email:email[0].value,password:email[1].value})
+            body:JSON.stringify({email:email[0].value,password:email[1].value}),
+            headers:{
+                "Content-Type":"application/json"
+            }
         })
 
         if(response.ok){
@@ -30,7 +33,10 @@ export default function Admin(){
 
             if(json.status=="admin") {
                 context.isAdmin = true;
+                user.next('admin')
                 return window.location.replace('/data');
+            } else {
+                updateState(state.concat(["You are not the admin"]))
             }
         }
     }

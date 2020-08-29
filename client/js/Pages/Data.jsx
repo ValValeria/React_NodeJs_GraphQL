@@ -1,7 +1,7 @@
 import React from 'react'
 import {Alert} from 'react-bootstrap'
-import {context } from '../Context/data'
 import { gql, useQuery } from '@apollo/client';
+import {user} from './Admin'
 
 const GET = gql(`
     {
@@ -12,13 +12,18 @@ const GET = gql(`
     }
 `)
 
-export default function (){
+export default function (props){
     const classes = React.useCallback(()=>{
         return 'd-flex align-items-center flex-columns text-center justify-content-center flex-columns '
     })
 
+    const [isAdmin,update] = React.useState(false)
 
-    if (!context.isAdmin) return window.location.replace('/');
+    user.subscribe(()=>{
+        update(true)
+    })
+     
+    if( !isAdmin) return window.location.replace('/')
 
     const { loading, error, data } = useQuery(GET);
     
@@ -28,7 +33,7 @@ export default function (){
                  <h6 className=" headline text-white ">Your messages</h6>
                  <div className="mt-20 w-100">
                      {
-                         data.map(elem=>{
+                         (data||[]).map(elem=>{
                              return (
                             <Alert variant="dark" className="m-auto w-100"dismissible key={elem}>
                                 <Alert.Heading>{elem.email}</Alert.Heading>

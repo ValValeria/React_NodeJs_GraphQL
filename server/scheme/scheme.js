@@ -47,9 +47,9 @@ const Mutation = new GraphQLObjectType({
     }
 })
 
-module.exports.root = new graphql.GraphQLSchema({
+export default new graphql.GraphQLSchema({
     query:RootType,
     mutation:Mutation
-})
+});
 
 ///02:12:40
