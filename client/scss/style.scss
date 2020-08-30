@@ -44,12 +44,18 @@ section{
     font-size: 14px;
     line-height: 20px;
     background-color: #191c23;
+    background-color: #24292e;
     color: #fff;
     padding: 1.875rem 0 3.5rem;
     text-align: left;
     min-height:40px;
     width:100vw;
     padding: 1.875rem;
+}
+
+.hh{
+    background-image: url(https://d33wubrfki0l68.cloudfront.net/2f662b5…/cd7bf/static/bg-stars-47e9225….jpg);
+    background-position: center center;
 }
 
 .shadow{
@@ -62,6 +68,11 @@ section{
     min-height: 350px;
     width: 90%;
     max-width: 700px;
+}
+
+.btn_not-hover:hover{
+    background:none !important;
+    border:none !important;
 }
 
 header{
@@ -94,12 +105,39 @@ header{
     max-width: 500px;
 }
 
+.skills__card{
+    max-width: 300px;
+    width:250px;
+    margin: 20px;
+    height: 300px;
+    box-shadow: 0 0 0 1px rgba(18,21,26,.04), 0 16px 32px 0 rgba(18,21,26,.12);
+    padding-bottom: 20px;
+}
+
+.skills__card img{
+    max-width:100%;
+    height: 230px;
+    padding-bottom: 20px;
+}
+
+.skills__card-t{
+    font-weight: 600;
+    padding-top: 20px;
+    font-size: 25px;
+}
+
 .form__section{
     min-height: 50vh;
-    background-image: url(https://demos.creative-tim.com/material-kit-react/static/media/sign.cf8b686b.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center bottom;
+    min-height: 50vh;
+    background-image:url(https://d33wubrfki0l68.cloudfront.net/2f662b53c284f0b06bc7461c7c447cd8e2ceaf1f/cd7bf/static/bg-stars-47e922596ba5d46705bdbaf183740aea.jpg);    
+    backdrop-filter: blur(5px);
+}
+
+.margin_20{
+    margin: 20px auto !important;
 }
 
 .why_me{
@@ -229,6 +267,41 @@ header{
     text-align: center;
 }
 
+.section__content{
+    max-width:1000px;
+    margin:0 auto;
+    width:100%;
+}
+
+.card__items{
+    max-width: 1000px;
+    width: 90%;
+}
+
+.margin_2{
+    margin:2px;
+}
+
+.mycard{
+    max-width:300px;
+    margin:20px;
+    flex: 1 1 33%;
+}
+
+.card__items{
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+.transp__backgr {
+    background-color: rgba(52, 73, 94,1.0);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    min-height: 150px;
+
+}
 
 @media (max-width:930px){
     .wrap{

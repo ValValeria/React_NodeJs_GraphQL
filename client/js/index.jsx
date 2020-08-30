@@ -6,6 +6,8 @@ import '../scss/style.scss'
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import {Provider} from 'react-redux'
+import store from './store/index.js';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -16,7 +18,9 @@ const client = new ApolloClient({
 render(
     <ApolloProvider client={client}>
        <BrowserRouter>
-          <App/>
+         <Provider store={store}>
+             <App/>
+         </Provider>
        </BrowserRouter>
     </ApolloProvider>
 ,document.querySelector('#app'))

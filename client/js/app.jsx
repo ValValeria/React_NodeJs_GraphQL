@@ -8,6 +8,7 @@ import Data from './Pages/Data'
 export default function App(){
      return (
          <>
+
          <Header/>
          <Switch>
             <Route path="/admin" component={Admin}/>

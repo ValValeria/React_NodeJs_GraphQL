@@ -2,6 +2,7 @@ import React from 'react'
 import {Alert} from 'react-bootstrap'
 import { gql, useQuery } from '@apollo/client';
 import {user} from './Admin'
+import {connect} from 'react-redux'
 
 const GET = gql(`
     {
@@ -12,18 +13,14 @@ const GET = gql(`
     }
 `)
 
-export default function (props){
+function  Data({isAdmin}){
     const classes = React.useCallback(()=>{
         return 'd-flex align-items-center flex-columns text-center justify-content-center flex-columns '
     })
 
-    const [isAdmin,update] = React.useState(false)
+    const [isAd,update] = React.useState(isAdmin)
 
-    user.subscribe(()=>{
-        update(true)
-    })
-     
-    if( !isAdmin) return window.location.replace('/')
+    if( !isAd) return window.location.replace('/')
 
     const { loading, error, data } = useQuery(GET);
     
@@ -49,3 +46,6 @@ export default function (props){
         </div>         
     );
 }
+
+
+export default connect((state)=>({isAdmin:state.isAdmin}))(Data)

@@ -2,15 +2,20 @@ import React from 'react';
 import Banner from '../Components/Banner'
 import Footer from '../Components/Footer'
 import Form from '../Components/Form'
+import {connect} from 'react-redux'
+import Chip from '@material-ui/core/Chip';
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import _ from 'lodash'
 
-const data = [
-    {" It’s a platform you own and control.":`It’s great to be on social media, but when algorithms change (I’m looking at you Instagram) it can be frustrating. When you have your own website, you get to control exactly what information is out there, and when and how that information is displayed to users`,img:"https://d33wubrfki0l68.cloudfront.net/3ac42a60a07e4edd3907f79bad73ccb74edb2e70/8504d/static/apis@2x-f1fb43c194f7d6a0dae8bc7647396279.png"}
-    ,{'Grow your audience':`Having a website means you aren’t limited in who you reach. It’s the World-Wide Web for a reason. Even if you’ve only got one brick-and-mortar shop, you can reach hundreds of people who never would have otherwise known that your business existed.`,img:"https://d33wubrfki0l68.cloudfront.net/0a4b1602643cfda1605ad30966236f9d163e2385/fe6ac/static/data@2x-958469fadd32f1e34c6debe97bc7ca21.png"}
-    ,{"Easily provide information":`Having a website truly makes it easier to communicate with your mass audience of consumers. And you can control whatever information gets out there and how long it is available.`,img:"https://d33wubrfki0l68.cloudfront.net/ef3e0a9fd3f2eb6ba04ba01db2703d8005df289f/41ab2/static/experiences-edee52c0d97a21d0c058295cf4ab1f26.png"}
-];
+const maptostate = (state) => ({data:state.whyme,projects:state.data})
 
-export default function Main(){
- 
+function Main({data,projects}){
 
     return (
         <>
@@ -45,8 +50,66 @@ export default function Main(){
              </div>
            </div>
         </section>
+
+         <section>
+            <div className="section__content">
+                 <h5 className="headline text-center ">My Skills</h5>
+                 <div className="mx-80 m-auto card__items">
+                     {
+                          _.map({"React":"/img/react.svg","VueJs":"/img/vuejs_logo.png","Angular":"/img/angular.svg"},(value,key)=>{
+                              return(
+                                  <div className="skills__card" key={key}>
+                                      <div className="d-flex justify-content-center"><img src={value} alt=""/></div>
+                                      <div className="skills__card-t text-center">{key}</div>
+                                  </div>
+                              )
+                          })
+                     }
+                 </div>
+            </div>
+         </section>
+
+         <section className="light">
+            <div className="section__content">
+                 <h5 className="headline text-center ">My Projects</h5>
+                  <div className="mx-80 m-auto card__items">
+                       {
+                           projects.map(({title,tags,link,img})=>{
+                                 return (
+                                     <Card key ={title} className="mycard ">
+                                         <CardActionArea>
+                                             <CardMedia 
+                                              image={img}
+                                              component="img"
+                                              alt="......"
+                                              height="140"
+                                             />
+                                            <CardContent >
+                                                <Typography gutterBottom variant="h5" className={"text-center"} component="h2">{title} </Typography>
+                                                 <div className="mt-20 d-flex flex-wrap justify-content-center">
+                                                     {tags.split(',').map(elem=>{
+                                                         return (
+                                                            <Chip label={elem} className="margin_2" color="primary" key={elem+Math.random()}/>
+                                                         )
+                                                     })}
+                                                </div>       
+                                                <CardActions>
+                                                    <Button href={link} color="primary" className="d-block w_100  text-center margin_20" style={{display:"block",width:"200px",margin:"20px auto !important"}} variant="outlined">Show</Button>
+                                                </CardActions>
+                                            </CardContent>
+                                          </CardActionArea>  
+                                     </Card>
+                                 )
+                           })
+                       }
+                  </div>
+            </div>
+         </section>
+
          <Form/>
         <Footer/>
         </>
     )
 }
+
+export default connect(maptostate)(Main)

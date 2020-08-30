@@ -1,6 +1,6 @@
 import {Letter} from '../mongoose/mongoose'
 import {user} from '../user.data'
-
+import validator from 'validator'
 
 const graphql = require('graphql');
 
@@ -40,7 +40,9 @@ const Mutation = new GraphQLObjectType({
             },
             async resolve(parent,args){///create a letter
                 const obj = {email:args.email,message:args.message};
-                await Letter.create(obj)
+                if(validator.isEmail(args.email)&& validator.isLength(args.message,{max:200,min:10})){
+                    await Letter.create(obj)
+                }
                 return obj
             }
         }
