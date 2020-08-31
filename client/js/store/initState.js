@@ -2,7 +2,7 @@ const state={
     data:[
     {title:"Email App",tags:"#React,#Gulp,#NodeJs,#ExpressJs",link:"https://github.com/ValValeria/React_Email",img:"https://github.com/ValValeria/React_Email/blob/master/screen.png?raw=true"},
     {title:"Shop",tags:"#Django,#Python,#Angular,#RxJs",link:"https://github.com/ValValeria/Angular_Python",img:"/img/angular.png"},
-    {title:"Digital",tags:"#VueJs,#Laravel,#RxJs",link:"https://github.com/ValValeria/Laravel",img:"/img/vuejs.png"}],
+    {title:"Digital",tags:"#VueJs,#Laravel,#RxJs,#Boostrap",link:"https://github.com/ValValeria/Laravel",img:"/img/vuejs.png"}],
     isAdmin:false,
     whyme:[
         {" It’s a platform you own and control.":`It’s great to be on social media, but when algorithms change (I’m looking at you Instagram) it can be frustrating. When you have your own website, you get to control exactly what information is out there, and when and how that information is displayed to users`,img:"https://d33wubrfki0l68.cloudfront.net/3ac42a60a07e4edd3907f79bad73ccb74edb2e70/8504d/static/apis@2x-f1fb43c194f7d6a0dae8bc7647396279.png"}

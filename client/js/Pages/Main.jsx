@@ -69,7 +69,7 @@ function Main({data,projects}){
             </div>
          </section>
 
-         <section className="light">
+         <section style={{backgroundImage:"url(/img/bg1.jpg)",backgroundPositionY:"300px",backgroundRepeat:"no-repeat"}}>
             <div className="section__content">
                  <h5 className="headline text-center ">My Projects</h5>
                   <div className="mx-80 m-auto card__items">
@@ -84,12 +84,12 @@ function Main({data,projects}){
                                               alt="......"
                                               height="140"
                                              />
-                                            <CardContent >
+                                            <CardContent className="d-flex flex-column justify-content-between">
                                                 <Typography gutterBottom variant="h5" className={"text-center"} component="h2">{title} </Typography>
                                                  <div className="mt-20 d-flex flex-wrap justify-content-center">
                                                      {tags.split(',').map(elem=>{
                                                          return (
-                                                            <Chip label={elem} className="margin_2" color="primary" key={elem+Math.random()}/>
+                                                            <Chip label={elem} className="margin_2" style={{flex:"1 1 25%",maxWidth:"100px"}} color="primary" key={elem+Math.random()}/>
                                                          )
                                                      })}
                                                 </div>       

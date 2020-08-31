@@ -65,7 +65,7 @@ function MyForm ({portfolio}){
             }
         </Form.Group>
         <Form.Group>
-          <Button  variant="contained" onClick={sumbit} className="d-block w-100 text-center hh"  color="primary">Send</Button>
+          <Button  variant="contained" onClick={sumbit} className="d-block w-100 text-center hh  beauty"  color="primary">Send</Button>
         </Form.Group>
       </Form>
       </section>
