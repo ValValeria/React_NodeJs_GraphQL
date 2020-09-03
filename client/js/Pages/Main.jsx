@@ -69,7 +69,7 @@ function Main({data,projects}){
             </div>
          </section>
 
-         <section style={{backgroundImage:"url(/img/bg1.jpg)",backgroundPositionY:"300px",backgroundRepeat:"no-repeat"}}>
+         <section >
             <div className="section__content">
                  <h5 className="headline text-center ">My Projects</h5>
                   <div className="mx-80 m-auto card__items">
@@ -105,8 +105,13 @@ function Main({data,projects}){
                   </div>
             </div>
          </section>
-
-         <Form/>
+         <div className="triangle-block">
+           <svg id="bigTriangleShadow" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path id="trianglePath1" fill="white" d="M0 0 L50 100 L100 0 Z"></path>
+            <path id="trianglePath2" fill="#402C42" stroke="#3C283D" d="M50 100 L100 40 L100 0 Z"></path>
+           </svg>
+         </div>
+        <Form/>
         <Footer/>
         </>
     )

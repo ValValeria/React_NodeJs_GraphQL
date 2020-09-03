@@ -48,7 +48,7 @@ function MyForm ({portfolio}){
     return (
       <section style={{minHeight:"50vh"}} className="form__section " id="contact"> 
        <h5 className="headline text-white">Contact me</h5>
-      <Form className="m-auto" id="myform" >
+      <Form className="m-auto" id="contacts" >
         <Form.Group controlId="exampleForm.ControlInput1" >
           <Button color="primary" className="pl-0 btn_not-hover">Your Email</Button>
           <TextField id="outlined-basic" className="w-100" label="Your email must be less than 30 and more than 10" variant="outlined" ref={email} type="email"/>
