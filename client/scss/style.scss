@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 
 *{
@@ -150,6 +151,8 @@ header{
 
     .img{
         max-width: 100%;
+        width:200px;
+        padding-top: 2rem;
     }
 
     .img img{
@@ -159,14 +162,16 @@ header{
 
     p{
     font-size: 14px;
-    max-width: 90%;
-    margin: 0 auto;
     margin-top: 20px;
     }
 
     >div{
-        padding-bottom:4rem;
+        display:flex;
+        padding:2rem;
     }
+     svg{
+         min-width:150px;
+     }
 }
 
 .why_me-main{
@@ -186,10 +191,10 @@ header{
 
 .num-item span{
     display: inline-block;
-    color: #fff;
-    font-weight: 900;
     font-size: 24px;
     margin-right: 25px;
+    width: 28px;
+    text-align: center;
 }
 
 .p-20{
@@ -200,6 +205,22 @@ header{
   min-height:100vh;
 }
 
+.none{
+    display:none !important;
+}
+
+.scale{
+    transform:  translateY(-5px) scale(1.2);
+    display:inline-block;
+    margin-left:10px;
+}
+
+#line{
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-delay: 0ms;
+}
 
 .img_my{
     background-image: url(https://images.unsplash.com/photo-1598674931646-412655aa28d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80);
@@ -209,10 +230,11 @@ header{
 }
 
 .why_me-main h6{
-    font-size: 46px;
+    font-size: 40px;
     font-weight: 400;
     /* line-height: 40px; */
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
 .light{
@@ -263,8 +285,10 @@ header{
     font-weight: 600;
     color: #2f353f;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 38px;
     text-align: center;
+    -webkit-text-stroke:medium;
+    padding:30px;
 }
 
 .section__content{
@@ -299,7 +323,7 @@ header{
     justify-content: center;
 }
 
-.card__items > div {
+.card__items > div,.skills__card,.shadows_b {
     box-shadow: 0 0 0 1px rgba(18, 21, 26, 0.04), 0 16px 32px 0 rgba(18, 21, 26, 0.12);
 }
 

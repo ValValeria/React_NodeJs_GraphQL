@@ -15,20 +15,24 @@ import _ from 'lodash'
 
 const maptostate = (state) => ({data:state.whyme,projects:state.data})
 
+function createMarkup(html) {
+    return {__html: html};
+  }
+
 function Main({data,projects}){
 
     return (
         <>
         <Banner/>
-        <section className="dark why_me">
+        <section className=" why_me">
            <div className="wrap">
              <div className="why_me-main">
-                   <h6 className="text-white">5 Reasons Why Your Company Needs a Professional Website</h6>
+                   <h6 >3 Reasons Why Your Company Needs a Professional Website</h6>
                    <div className="why_me-main-num">
                          {
                              [data.map((el,index)=>{
                                 return (
-                                <div className="num-item text-white" key={index}>
+                                <div className="num-item " key={index}>
                                      <span>0{index+1}</span>
                                      {Object.keys(el)[0]}
                                  </div>);
@@ -40,10 +44,12 @@ function Main({data,projects}){
                         {
                              [data.map((el,index)=>{
                                 return (
-                                <div className="text-white" key={index}>
-                                     <div className="img"><img src={el.img} alt="..." /></div>
-                                     <h2>{Object.keys(el)[0]}</h2>
-                                     <p>{Object.values(el)[0]}</p>
+                                <div  key={index} className="shadows_b" style={{margin:"20px",textAlign:"right"}}>
+                                     <div className="img" dangerouslySetInnerHTML={createMarkup(el.img)}></div>
+                                      <div>
+                                         <h2>{Object.keys(el)[0]}</h2>
+                                         <p>{Object.values(el)[0]}</p>
+                                      </div>
                                  </div>);
                              })]
                          }
@@ -105,12 +111,25 @@ function Main({data,projects}){
                   </div>
             </div>
          </section>
+
+        <section>
+             <div className="wrap">
+               <h5 className="headline text-center">My reviews</h5>
+             </div>
+        </section>
+        
+        <section>
+            <div className="wrap">
+               <h5 className="headline text-center">Questions</h5>
+             </div>
+        </section>
          <div className="triangle-block">
            <svg id="bigTriangleShadow" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path id="trianglePath1" fill="white" d="M0 0 L50 100 L100 0 Z"></path>
             <path id="trianglePath2" fill="#402C42" stroke="#3C283D" d="M50 100 L100 40 L100 0 Z"></path>
            </svg>
          </div>
+
         <Form/>
         <Footer/>
         </>
