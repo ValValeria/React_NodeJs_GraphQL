@@ -145,6 +145,23 @@ header{
     position: relative;  
 }
 
+.img-container{
+    max-width:300px;
+    min-width:250px;
+}
+
+.img-container img{
+    max-width:100%;
+    object-fit: contain;
+}
+
+.cases{
+    background-image: url(https://art-lemon.com/portfoliot666/design-portfolio/images/tild3362-3865-4564-b933-326335386436__group_31.png);
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+    background-position-y: 80px;
+}
+
 .why_me-decsr{
     padding-left: 46%;
     text-align: center;
@@ -213,6 +230,10 @@ header{
     transform:  translateY(-5px) scale(1.2);
     display:inline-block;
     margin-left:10px;
+}
+
+.mrt_4_rem{
+    margin-top:4rem !important;
 }
 
 #line{
@@ -382,6 +403,31 @@ header{
     .why_me-decsr > div{
         flex:1 1 100%;
         max-width:100%;
+    }
+
+    .flex__wrap__700{
+        flex-wrap:wrap !important;
+    }
+    .ccl{
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+    .img__700__center{
+        margin: 0 auto !important;
+        margin-top:30px !important;
+    }
+    #questions{
+        padding-bottom:0;
+    }
+    .why_me-decsr .img {
+        max-width: 100px;
+        /* width: 200px; */
+        padding-top: 2rem;
+        padding-bottom: 20px;
+    }
+    #questions .headline{
+        margin-bottom: 0;
+        padding-bottom:0;
     }
 }
 
