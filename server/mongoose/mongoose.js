@@ -9,5 +9,5 @@ const LetterScheme = new mongoose.Schema({
 
 export const Letter = mongoose.model('Schedule',LetterScheme)
 
-mongoose.connect("mongodb+srv://myuser:jsjjsjsjjsj7272jH@cluster0.emx8s.mongodb.net/schedule?retryWrites=true&w=majority",{ useNewUrlParser: true })
+mongoose.connect("******",{ useNewUrlParser: true })
 
