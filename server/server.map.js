@@ -7,6 +7,7 @@ import bodyparser from 'body-parser'
 const express = require('express')
 const graphqlHTTP = require('express-graphql').graphqlHTTP
 const app = express()
+const PORT = process.env.PORT || 8000
 
 app.use(bodyparser.json())
 
@@ -62,4 +63,4 @@ app.get("*",(req,resp)=>{
        resp.sendFile(filePath)
 })
 
-app.listen(8000)
+app.listen(PORT)
