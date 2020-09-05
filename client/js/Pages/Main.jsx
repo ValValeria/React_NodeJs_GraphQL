@@ -5,7 +5,7 @@ import Form from '../Components/Form'
 import {connect} from 'react-redux'
 import Chip from '@material-ui/core/Chip';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'; 
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -17,6 +17,25 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
+import { useEffect } from 'react';
+
+function scroll(){
+    const scroll = document.documentElement.scrollTop;
+    const elems = Array.from(document.querySelectorAll('.num-item'));
+    const parent = document.querySelector('.why_me-decsr');
+
+    if(scroll<(parent.offsetTop+parent.clientHeight) && scroll>parent.offsetTop){
+         
+         elems.forEach((elem)=>{
+           elem.classList.remove('f-w-800');
+           console.log(elem.getBoundingClientRect())
+           console.log(scroll)
+           return (elem.getBoundingClientRect().y<scroll && (elem.getBoundingClientRect().y+elem.clientHeight)>scroll) && elem.classList.add('f-w-800');
+         })
+
+    }
+}
+
 
 function Icon(){
     return (
@@ -34,6 +53,11 @@ function createMarkup(html) {
   }
 
 function Main({data,projects,questions}){
+
+    useEffect(()=>{
+    scroll();  
+    window.onscroll= scroll;
+    },[])
 
     return (
         <>
@@ -71,7 +95,7 @@ function Main({data,projects,questions}){
            </div>
         </section>
 
-         <section>
+         <section id="skills">
             <div className="section__content">
                  <h5 className="headline text-center ">My Skills</h5>
                  <div className="mx-80 m-auto card__items">
@@ -89,7 +113,7 @@ function Main({data,projects,questions}){
             </div>
          </section>
 
-         <section >
+         <section id="my_projects">
             <div className="section__content">
                  <h5 className="headline text-center ">My Projects</h5>
                   <div className="mx-80 m-auto card__items">
@@ -126,11 +150,11 @@ function Main({data,projects,questions}){
             </div>
          </section>
 
-        <section style={{paddingBottom:"0"}}>
+        <section style={{paddingBottom:"0"}} id="reviews">
              <div className="wrap">
                <h5 className="headline text-center">My reviews</h5>
                <div className="review container-md">
-                <div className="card m-auto d-flex flex-row align-items-center shadows_b">
+                <div className="card m-auto d-flex flex-row align-items-center shadows_b position-relative">
                    <div className="card-body">
                         <h5 className="card-title">Max Novitskiy</h5>
                         <p className="card-text"><small className="text-muted">UI designer</small></p>
@@ -138,9 +162,8 @@ function Main({data,projects,questions}){
                         За время сотрудничества показатели по продвижению нашего сайта демонстрируeт только положительную динамику. Разработчик показал высокие деловые стандарты, индивидуальный подход, поиск оптимальных решений для достижения поставленных целей.
                         </p>
                    </div>
-                   <div className="stars">
+                   <div className="stars position-absolute" style={{right:"1rem",top:"1rem"}}>
                      <Box component="fieldset" mb={1} borderColor="transparent">
-                        <Typography component="legend">Read only</Typography>
                         <Rating name="read-only" value={4} readOnly />
                      </Box>
                    </div>

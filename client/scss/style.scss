@@ -71,8 +71,17 @@ section{
     border:none !important;
 }
 
+
+
+.menu__icon{
+    position: absolute;
+    right:1rem;
+    top:20px;
+}
+
+
 header{
-    height: 80px;
+    min-height: 80px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -87,6 +96,7 @@ header{
 .brand__name{
     font-size: 25px;
     font-weight: 700;
+    margin-left:30px;
 }
 
 .form__section form{
@@ -100,6 +110,11 @@ header{
     padding: 20px;
     max-width: 500px;
 }
+
+.f-w-800{
+    font-weight:800;
+}
+
 
 .skills__card{
     max-width: 300px;
@@ -187,7 +202,7 @@ header{
         padding:2rem;
     }
      svg{
-         min-width:150px;
+         min-width:100px;
      }
 }
 
@@ -226,10 +241,29 @@ header{
     display:none !important;
 }
 
+li{
+    list-style: none;
+}
 .scale{
     transform:  translateY(-5px) scale(1.2);
     display:inline-block;
     margin-left:10px;
+}
+
+.links{
+ li{
+    margin:0 20px;
+    padding-top:10px;
+
+    a,a:hover,a:visited{
+        color:white;
+        text-decoration: none;
+    }
+ }
+
+ ul{
+     margin-bottom:0;
+ }
 }
 
 .mrt_4_rem{
@@ -291,8 +325,8 @@ header{
     font-size: 5rem;
 }
 .header__content{
-    max-width: 1200px;
-    width: 80%;
+    max-width: 1100px;
+    width: 90%;
     margin: 0 auto;
     color: white;
     display: flex;
@@ -310,6 +344,63 @@ header{
     text-align: center;
     -webkit-text-stroke:medium;
     padding:30px;
+}
+
+.why_me-decsr > div {
+    justify-content: start;
+}
+
+.active{
+    border-bottom: 1px solid white;
+    padding: 5px 10px;
+}
+
+
+#mylinks{
+    display: flex;
+}
+
+.menu__icon{
+    display: none;
+    right: 2rem;
+    top: 1.5rem;
+}
+
+
+
+@media(max-width:1000px){
+    .header__content{
+        flex-direction: column;
+    }
+
+    #mylinks{
+        flex-direction: column;
+        padding-top:30px;
+        display:none ;
+    }
+
+    #mylinks  li a {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        padding: 10px;
+        font-size: 23px;
+        text-transform: uppercase;
+        line-height: 28px;
+    }
+
+    .menu__icon{
+        display: block;
+    }
+
+    header{
+        background-color: #191c3c;
+    }
+
+    #mylinks li a:hover{
+        transform: scale(1.2);
+        -webkit-text-stroke: medium;
+    }
 }
 
 .section__content{
@@ -362,6 +453,12 @@ header{
 
 }
 
+
+.visible_o{
+    display: block !important;
+}
+
+
 @media (max-width:930px){
     .wrap{
         @include center();
@@ -393,10 +490,13 @@ header{
         max-width: 45%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        align-content: center;
+    }
+
+    .why_me-decsr .img {
+        margin: 0 auto;
     }
 }
-
 
 
 @media (max-width:785px){

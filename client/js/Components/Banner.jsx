@@ -45,7 +45,7 @@ export default function Banner(){
     return (
         <section className="banner">
              <div className="banner__content text-white text-center">
-                 <h3><span id="mytitle" ref={ref}></span><span id="line" className="none">|</span></h3>
+                 <h3><span id="mytitle" ref={ref}>W</span><span id="line" className="none">|</span></h3>
                  <div className="m-20 banner__buttons">
                    <Button variant="contained" color="primary" className="m-7">Portfolio</Button>
                    <Button variant="outlined" color="primary" href="#contacts"className="m-7 text-white" style={{borderColor:"white",display:"inline-block"}}>Contact me</Button>
