@@ -52,7 +52,7 @@ export default class Header extends React.PureComponent{
         };
 
         const scroll = (e)=>{
-            if (scrollElement.scrollTop > 200) {
+            if (document.documentElement.scrollTop > 200) {
                 this.setState({
                     className:"dark shadow"
                 })

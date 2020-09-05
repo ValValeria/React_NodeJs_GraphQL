@@ -22,15 +22,16 @@ import { useEffect } from 'react';
 function scroll(){
     const scroll = document.documentElement.scrollTop;
     const elems = Array.from(document.querySelectorAll('.num-item'));
-    const parent = document.querySelector('.why_me-decsr');
+    const parent = document.querySelector('.why_me');
 
     if(scroll<(parent.offsetTop+parent.clientHeight) && scroll>parent.offsetTop){
          
          elems.forEach((elem)=>{
            elem.classList.remove('f-w-800');
-           console.log(elem.getBoundingClientRect())
+           const top = elem.getBoundingClientRect().y + window.pageYOffset;
+           console.log(top)
            console.log(scroll)
-           return (elem.getBoundingClientRect().y<scroll && (elem.getBoundingClientRect().y+elem.clientHeight)>scroll) && elem.classList.add('f-w-800');
+           return (top<scroll && (top+elem.clientHeight)>scroll) && elem.classList.add('f-w-800');
          })
 
     }
