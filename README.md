@@ -3,11 +3,11 @@ You can send messages, which is going to be delivered in the specified time by N
 
 ![alt text](https://github.com/ValValeria/React_Graphql/blob/master/screen.png?raw=true)
 
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
-# *webpack & npm start*
+## *npm start*
 
 Runs the app in the development mode.<br />
 Open [http://localhost:8000](http://localhost:9000) to view it in the browser.
@@ -18,4 +18,7 @@ Open [http://localhost:8000](http://localhost:9000) to view it in the browser.
 * Webpack
 * Babel
 * React boostrap
+* GraphQL
+* Mongodb
+* NodeJs
 
