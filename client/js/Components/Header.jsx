@@ -22,6 +22,7 @@ export default class Header extends React.Component{
             window.onscroll=()=>{
               this.scroll();
            }
+           this.scroll();
         },0);   
 
     }

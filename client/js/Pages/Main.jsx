@@ -29,9 +29,7 @@ function scroll(){
          
          elems.forEach((elem)=>{
            elem.classList.remove('f-w-800');
-           console.log(elem.getBoundingClientRect().top+elem.clientHeight+pageYOffset);
-           console.log(scroll)
-           return ((elem.getBoundingClientRect().top+elem.clientHeight+pageYOffset)>scroll && (elem.getBoundingClientRect().top+pageYOffset)<scroll) && elem.classList.add('f-w-800');
+           return ((elem.getBoundingClientRect().top+elem.clientHeight+pageYOffset)>scroll) && elem.classList.add('f-w-800');
          })
 
     }
