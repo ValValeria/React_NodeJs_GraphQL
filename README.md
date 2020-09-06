@@ -1,7 +1,7 @@
 ## `About the project`
 You can send messages, which is going to be delivered in the specified time by NodeJs
 
-![alt text](https://github.com/ValValeria/React_Graphql/blob/master/screen.png?raw=true)
+![alt text](https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true)
 
 # Available Scripts
 
