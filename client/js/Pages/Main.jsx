@@ -29,8 +29,6 @@ function scroll(){
          elems.forEach((elem)=>{
            elem.classList.remove('f-w-800');
            const top = elem.getBoundingClientRect().y + window.pageYOffset;
-           console.log(top)
-           console.log(scroll)
            return (top<scroll && (top+elem.clientHeight)>scroll) && elem.classList.add('f-w-800');
          })
 

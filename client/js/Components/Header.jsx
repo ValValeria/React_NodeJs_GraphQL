@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
-export default class Header extends React.PureComponent{
+export default class Header extends React.Component{
     
     constructor(props){
         super(props)
@@ -11,60 +10,51 @@ export default class Header extends React.PureComponent{
            className:"",
            links:["skills",'my_projects','reviews','questions','contact']
         }
-        this.ref=React.createRef()
-    }
- 
+        this.ref=React.createRef();
+
+    } 
 
     componentDidMount(){
         
-        const scrollElement = document.documentElement || document.body
-     
+        this.scrollElement = document.documentElement || document.body;
 
-        window.onscroll = ()=>{
-            menu();
-        }
+        setTimeout(()=>{
+            window.onscroll=()=>{
+              this.scroll();
+           }
+        },0);   
 
-        const menu = ()=>{
-            const header = document.querySelector('header');
+    }
 
-            activateLinks();
+    activateLinks(){
+        this.state.links.forEach((elem)=>{
+            const link = document.querySelector(`#${elem}`);
+            const linkHref = document.querySelector(`a[href="#${elem}"`);
 
-            scroll();
-
-        };
-
-        const activateLinks = ()=>{
-            this.state.links.forEach((elem)=>{
-                const link = document.querySelector(`#${elem}`);
-                const linkHref = document.querySelector(`a[href="#${elem}"`);
-
-                if((link.offsetTop)<=scrollElement.scrollTop){
-                    Array.from(document.querySelectorAll('ul li a')).forEach((el)=>{
-                        el.classList.remove('active')
-                    })
-                    linkHref.classList.add('active');
-                } else {
-                    linkHref.classList.remove('active');
-                }
-
-            })
-
-        };
-
-        const scroll = (e)=>{
-            if (document.documentElement.scrollTop > 200) {
-                this.setState({
-                    className:"dark shadow"
+            if((link.offsetTop)<=this.scrollElement.scrollTop){
+                Array.from(document.querySelectorAll('ul li a')).forEach((el)=>{
+                    el.classList.remove('active')
                 })
+                linkHref.classList.add('active');
             } else {
-                this.setState({
-                    className:""
-                })
+                linkHref.classList.remove('active');
             }
 
-        };
+        })
 
-        menu();
+    };
+
+    scroll (e){
+        if (document.documentElement.scrollTop > 200) {
+            this.setState({
+                className:"dark shadow"
+            })
+        } else {
+            this.setState({
+                className:""
+            })
+        }
+        this.activateLinks();
     }
    
 
