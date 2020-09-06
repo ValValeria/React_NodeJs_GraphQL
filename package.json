@@ -2,9 +2,9 @@
   "name": "graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "build\\server\\server.js",
+  "main": "",
   "scripts": {
-    "start": "node build\\server\\server.js",
+    "start": "node build/server/server.js",
     "webpack": "webpack --watch"
   },
   "author": "",
@@ -20,7 +20,8 @@
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
     "webpack": "^4.44.1",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "^2.5.2",
+    "graphql": "15.3.0"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",

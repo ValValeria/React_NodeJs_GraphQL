@@ -23,18 +23,18 @@ function scroll(){
     const scroll = document.documentElement.scrollTop;
     const elems = Array.from(document.querySelectorAll('.num-item'));
     const parent = document.querySelector('.why_me');
+    const start = parent.getBoundingClientRect().top+pageYOffset;
 
-    if(scroll<(parent.offsetTop+parent.clientHeight) && scroll>parent.offsetTop){
+    if(scroll>(parent.getBoundingClientRect().top+pageYOffset) && scroll<(start+parent.clientHeight)){
          
          elems.forEach((elem)=>{
            elem.classList.remove('f-w-800');
-           const top = elem.getBoundingClientRect().y + window.pageYOffset;
-           return ((elem.offsetTop+pageYOffset)>scroll && elem.offsetTop<scroll) && elem.classList.add('f-w-800');
+           console.log(elem.getBoundingClientRect().top+elem.clientHeight+pageYOffset);
+           console.log(scroll)
+           return ((elem.getBoundingClientRect().top+elem.clientHeight+pageYOffset)>scroll && (elem.getBoundingClientRect().top+pageYOffset)<scroll) && elem.classList.add('f-w-800');
          })
 
     }
-
-    //document.querySelector('.num-item').offsetTop+document.documentElement.scrollTop
 }
 
 
