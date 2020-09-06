@@ -29,10 +29,12 @@ function scroll(){
          elems.forEach((elem)=>{
            elem.classList.remove('f-w-800');
            const top = elem.getBoundingClientRect().y + window.pageYOffset;
-           return (top<scroll && (top+elem.clientHeight)>scroll) && elem.classList.add('f-w-800');
+           return ((elem.offsetTop+pageYOffset)>scroll && elem.offsetTop<scroll) && elem.classList.add('f-w-800');
          })
 
     }
+
+    //document.querySelector('.num-item').offsetTop+document.documentElement.scrollTop
 }
 
 
