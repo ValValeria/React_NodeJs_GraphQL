@@ -10,7 +10,7 @@ Firstly, you need open the file, located in the directory `server/mongoose/mongo
 Runs the app in the development mode.<br />
 Open http://localhost:8000  to view it in the browser.
 
-## Technolegies , which i have used, is 
+## Technologies , which i have used, is 
 * React
 * Redux
 * Webpack
