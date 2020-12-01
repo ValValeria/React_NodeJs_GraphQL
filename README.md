@@ -1,4 +1,4 @@
-# SendMails - an React app
+# SendMails 
 
 ![alt text](https://github.com/ValValeria/React_NodeJs_GraphQL/blob/master/screen.png?raw=true)
 
